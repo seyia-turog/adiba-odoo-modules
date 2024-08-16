@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="adb-tenantmgr.adb_servers_cba">
+      <field name="name">Core Banking Applications</field>
+      <field name="model">adb.servers.cba</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tenant_id"/>
+          <field name="model"/>
+          <field name="url"/>
+          <field name="username"/>
+          <field name="database"/>
+          <field name="sandbox"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="adb-tenantmgr.adb_servers_cba_list">
+      <field name="name">Core Banking Applications</field>
+      <field name="res_model">adb.servers.cba</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

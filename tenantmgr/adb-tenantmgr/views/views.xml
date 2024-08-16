@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+      <!-- Tenant Search Vies -->
+      <record id="adb_tenants_search" model="ir.ui.view">
+            <field name="name">adb.tenant.view.search</field>
+          <field name="inherit_id" ref="base.view_res_partner_filter"/>
+          <field name="model">res.partner</field>
+          <field name="mode">primary</field>
+          <field name="arch" type="xml">
+              <filter name="type_company" position="after">
+                  <separator/>
+                  <filter string="Tenants" name="tenant_rank" domain="[('tenant_rank', '>', '0')]"/>
+                  <filter string="Tenant Administrators" name="tenant_admin_rank" domain="[('tenant_admin_rank', '>', '0')]"/>
+                  <filter string="Tenant Key Contacts " name="tenant_contact_rank" domain="[('tenant_contact_rank', '>', '0')]"/>
+              </filter>
+          </field>
+      </record> 
+  </data>
+</odoo>

@@ -1,0 +1,36 @@
+{
+    'name': 'Project - Scrum',
+    'version': '15.0.0.1.0',
+    'summary': 'To setup the project as scrum flow',
+    'description': 'To setup the project as scrum flow',
+    'category': 'project',
+    'price': "10.68",
+    'currency': "USD",
+    'author': 'OE Dev',
+    'website': 'https://oe-dev.odoo.com/',
+    'license': 'OPL-1',
+    'depends': ['project', 'mail', 'base'],
+    'images': [
+        'static/description/banner.png',
+        'static/description/icon.png', 
+    ],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/view_project_project_inherit.xml',
+        'views/view_sprint_release.xml',
+        'views/view_sprint_task.xml',
+        'views/view_project_task_inherit.xml',
+        'views/view_scrum_team.xml',
+        'views/view_scrum_meeting.xml',
+        'views/view_scrum_report.xml',
+        'views/view_project_document.xml',
+        'views/view_sprint_user_story.xml',
+        'views/menu_scrum.xml',
+    ],
+    'demo': [],
+    'installable': True,
+    'auto_install': False,
+    'external_dependencies': {
+        'python': [],
+    }
+}

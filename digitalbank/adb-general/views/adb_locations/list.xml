@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-general.adb-locations">
+      <field name="name">Locations</field>
+      <field name="model">adb.location</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="longitude"/>
+          <field name="latitude"/>
+          <field name="street"/>
+          <field name="city"/>
+          <field name="state"/>
+          <field name="country"/>
+
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-general.adb-locations_list">
+      <field name="name">Locations</field>
+      <field name="res_model">adb.location</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+
+  </data>
+</odoo>

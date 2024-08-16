@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="adb-devices.adb_device_transfers">
+      <field name="name">Device listing</field>
+      <field name="model">adb.device.transfer</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="old_device_id"/>
+          <field name="new_device_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="adb-devices.action_device_transfers_list">
+      <field name="name">Device Listings</field>
+      <field name="res_model">adb.device.transfer</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

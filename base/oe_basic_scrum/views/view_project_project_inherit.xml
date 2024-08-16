@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="oe_basic_scrum_view_project_project_form_inherit" model="ir.ui.view">
+        <field name="name">oe.view.project.project.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="x_is_scrum_project"/>
+                <field name="x_product_owner_id"
+                       attrs="{'invisible': [('x_is_scrum_project', '=', False)],'required': [('x_is_scrum_project', '=', True)]}"/>
+                <field name="x_scrum_master_id"
+                       attrs="{'invisible': [('x_is_scrum_project', '=', False)],'required': [('x_is_scrum_project', '=', True)]}"/>
+                <field name="x_scrum_team_id"
+                       attrs="{'invisible': [('x_is_scrum_project', '=', False)],'required': [('x_is_scrum_project', '=', True)]}"/>
+            </xpath>
+
+            <xpath expr="//page[@name='description']" position="after">
+                <page name="project_document" string="Documents"
+                      attrs="{'invisible': [('x_is_scrum_project', '=', False)]}">
+                    <field name="x_project_document_ids">
+                        <tree editable="bottom">
+                            <field name="x_name" required="1"/>
+                            <field name="x_document_file"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="sprint_release" string="Releases"
+                      attrs="{'invisible': [('x_is_scrum_project', '=', False)]}">
+                    <field name="x_release_ids" context="{'default_x_project_id': id}">
+                        <tree>
+                            <field name="x_name" string="Release Name"/>
+                            <field name="x_sprint_text" string="Sprints" widget="html"/>
+                            <field name="x_sprint_start_date"/>
+                            <field name="x_status" string="Release Status"/>
+                            <field name="x_project_id" optional="hide"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="x_name" string="Release Name"/>
+                                        <field name="x_sprint_start_date"/>
+                                    </group>
+                                    <group>
+                                        <field name="x_status"/>
+                                        <field name="x_sprint_end_date"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="Objective">
+                                        <field name="x_sprint_objective" widget="html"/>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+                <page name="sprint" string="Sprints"
+                      attrs="{'invisible': [('x_is_scrum_project', '=', False)]}">
+                    <field name="x_sprint_ids">
+                        <tree>
+                            <field name="x_name" string="Sprint Name"/>
+                            <field name="x_sprint_objective" widget="html"/>
+                            <field name="x_task_text" widget="html"/>
+                            <field name="x_status" string="Sprint Status"/>
+                            <field name="x_project_id" optional="hide"/>
+                            <field name="x_sprint_release_id" optional="hide"/>
+                        </tree>
+                        <form>
+                            <header>
+                                <field widget="statusbar" options="{'clickable': True}" name="x_status"/>
+                            </header>
+                            <sheet>
+                                <div class="oe_title" attrs="{'invisible': [('x_name', '=', False)]}">
+                                    <h1>
+                                        <field name="x_name" readonly="1" force_save="1"/>
+                                    </h1>
+                                </div>
+                                <group>
+                                    <group>
+                                        <field name="x_start_date"/>
+                                    </group>
+                                    <group>
+                                        <field name="x_end_date"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page name="objective" string="Objective">
+                                        <field name="x_sprint_objective" widget="html"/>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+                <page name="user_story" string="User Story"
+                      attrs="{'invisible': [('x_is_scrum_project', '=', False)]}">
+                    <field name="x_user_story_ids">
+                        <tree>
+                            <field name="x_story_id"/>
+                            <field name="x_user_story" widget="html" required="1"/>
+                            <field name="x_estimate_hour" required="1"/>
+                            <field name="x_priority" required="1"/>
+                            <field name="x_project_id" optional="hide"/>
+                            <field name="x_sprint_release_id" optional="hide"/>
+                            <field name="x_sprint_id" optional="hide"/>
+                        </tree>
+                        <form string="Sprint User Story">
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="x_priority"/>
+                                    </group>
+                                    <group>
+                                        <field name="x_estimate_hour"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page string="User Story" name="user_story">
+                                        <field name="x_user_story" widget="html"/>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+                <page name="project_tasks" string="Tasks"
+                      attrs="{'invisible': [('x_is_scrum_project', '=', False)]}">
+                    <field name="task_ids" context="{'default_project_id': active_id}">
+                        <tree>
+                            <field name="name" string="Task Name"/>
+                            <field name="user_ids" widget="many2many_avatar_user"/>
+                            <field name="stage_id"/>
+                            <field name="project_id" optional="hide"/>
+                            <field name="x_release_id" optional="hide"/>
+                            <field name="x_sprint_id" optional="hide"/>
+                            <field name="x_user_story_id" optional="hide"/>
+                        </tree>
+                        <form>
+                            <sheet>
+                                <group>
+                                    <group>
+                                        <field name="name"/>
+                                    </group>
+                                    <group>
+                                        <field name="user_ids" widget="many2many_tags"/>
+                                        <field name="company_id" invisible="1"/>
+                                        <field name="project_id" invisible="1"/>
+                                        <field name="stage_id" domain="[('project_ids', '=', active_id)]" invisible="1"/>
+                                    </group>
+                                </group>
+                                <notebook>
+                                    <page name="description" string="Description">
+                                        <field name="description"/>
+                                    </page>
+                                </notebook>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+                <page name="scrum_meeting" string="Scrum Meeting"
+                      attrs="{'invisible': [('x_is_scrum_project', '=', False)]}">
+                    <field name="x_scrum_meeting_ids"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="oe_basic_scrum_view_project_project_tree_inherit" model="ir.ui.view">
+        <field name="name">oe.view.project.tree.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='last_update_status']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date_start']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="x_product_owner_id"/>
+                <field name="x_scrum_master_id"/>
+                <field name="x_scrum_team_id"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <xpath expr="//field[@name='partner_id']" position="move"/>
+                <xpath expr="//field[@name='date_start']" position="move"/>
+                <xpath expr="//field[@name='date']" position="move"/>
+            </xpath>
+            <xpath expr="//field[@name='last_update_status']" position="after">
+                <button name="open_win_action_sprint_release" class="btn-success" type="object" string="RELEASE"/>
+                <button name="open_win_action_sprint" class="btn-primary" type="object" string="SPRINT"/>
+                <button name="open_win_action_user_story" class="btn-warning" type="object" string="STORY"/>
+                <button name="open_task" class="btn-primary" type="object" string="TASK"/>
+                <button name="open_project_document" class="btn-success" type="object" string="DOCUMENT"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

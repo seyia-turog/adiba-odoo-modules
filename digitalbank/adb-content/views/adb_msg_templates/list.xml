@@ -1,0 +1,20 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-content.msg_alerts">
+      <field name="name">Dynamic Alerts</field>
+      <field name="model">adb.msg.template</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="template"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-content.action_alerts_list">
+      <field name="name">Dynamic Alerts</field>
+      <field name="res_model">adb.msg.template</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

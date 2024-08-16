@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="adb_tenants_list_view" model="ir.ui.view">
+            <field name="name"> adb.tenants.list.view</field>
+            <field name="model">res.partner</field>        
+            <field name="mode">primary</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                <!-- <field name="tenant_ref" /> -->
+                <field name="display_name" />
+                <field name="mobile" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Add your code here -->
+        <record model="ir.actions.act_window" id="adb-tenantmgr.action_tenant_list">
+            <field name="name">Tenants</field>
+            <field name="res_model">res.partner</field>
+            <field name="context">{'search_default_tenant_rank':True}</field>
+            <field name="view_mode">kanban,list,form</field>
+            <field name="search_view_id" ref="adb_tenants_search"/>
+            <field name="view_ids" eval="[
+                (5,0,0),
+                (0,0,{'view_mode':'tree','view_id':ref('adb_tenants_list_view')}),
+                (0,0,{'view_mode':'form','view_id':ref('adb_tenants_view_form')})]"
+                />
+        </record>
+
+
+    </data>  
+</odoo>

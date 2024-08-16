@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-accounts.beneficiary_list">
+      <field name="name">Client Beneficiaries</field>
+      <field name="model">adb.beneficiary</field>
+      <field name="arch" type="xml">
+        <tree>
+          <!-- <field name="tenant_name"/> TODO: Compute field from client model-->
+          <field name="client_id"/>
+          <field name="name"/>
+          <field name="lookup_id"/>
+          <field name="dest_account"/>
+          <field name="name"/>
+          <field name="currency"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-accounts.action_beneficiary_list">
+      <field name="name">Client Beneficiaries</field>
+      <field name="res_model">adb.beneficiary</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

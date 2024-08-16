@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-content.msg_log">
+      <field name="name">SMS Message Logs</field>
+      <field name="model">adb.msg.log</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="ref"/>
+          <field name="destination"/>
+          <field name="service"/>
+          <field name="meta"/>
+          <field name="type"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-content.action_sms_logs_list">
+      <field name="name">SMS Message Logs</field>
+      <field name="res_model">adb.msg.log</field>
+      <field name="domain">[('type','=','sms')]</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-content.action_push_logs_list">
+      <field name="name">Push Notifications Logs</field>
+      <field name="res_model">adb.msg.log</field>
+      <field name="domain">[('type','=','push')]</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-content.action_email_logs_list">
+      <field name="name">Email Message Logs</field>
+      <field name="res_model">adb.msg.log</field>
+      <field name="domain">[('type','=','email')]</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

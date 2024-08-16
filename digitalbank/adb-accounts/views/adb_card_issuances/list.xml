@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-accounts.beneficiary_list">
+      <field name="name">Cards Issuance</field>
+      <field name="model">adb.card.issuance</field>
+      <field name="arch" type="xml">
+        <tree>
+          <!-- <field name="tenant_name"/> TODO: Compute field from client model-->
+          <field name="client_id"/>
+          <field name="name"/>
+          <field name="account_num"/>
+          <field name="card_num"/>
+          <field name="card_name"/>
+          <field name="card_type"/>
+          <field name="card_cvv"/>
+          <field name="provider"/>
+          <field name="expiry_date"/>
+          <field name="created"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-accounts.action_cards_internal_list">
+      <field name="name">Cards Issuance</field>
+      <field name="res_model">adb.card.issuance</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

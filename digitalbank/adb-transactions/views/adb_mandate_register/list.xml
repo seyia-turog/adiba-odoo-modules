@@ -1,0 +1,24 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-transactions.adb_mandate_register">
+      <field name="name">Mandate Register</field>
+      <field name="model">adb.mandate.register</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="order_id"/>
+          <field name="next_run"/>
+          <field name="last_run"/>
+          <field name="status"/>          
+          <field name="transaction_ref"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-transactions.action_mandate_register_list">
+      <field name="name">Mandate Register</field>
+      <field name="res_model">adb.mandate.register</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

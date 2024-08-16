@@ -1,0 +1,14 @@
+<odoo>
+  <data>
+
+    <record model="ir.actions.act_window" id="adb-tenantmgr.adb_tenant_admin_list">
+      <field name="name">Tenant Administrators</field>
+      <field name="res_model">res.partner</field>
+      <field name="context">{'search_default_tenant_admin_rank':True}</field>
+      <field name="view_mode">kanban</field>
+      <field name="search_view_id" ref="adb_tenants_search"/>
+    </record>
+
+    
+  </data>
+</odoo>

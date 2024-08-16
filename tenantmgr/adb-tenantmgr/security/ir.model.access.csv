@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_adb-tenantmgr_adb_servers_bpm,adb.servers.bpm,model_adb_servers_bpm,,1,1,1,1
+access_adb-tenantmgr_adb_servers_cba,adb.servers.cba,model_adb_servers_cba,,1,1,1,1
+access_adb-tenantmgr_adb_servers_erp,adb.servers.erp,model_adb_servers_erp,,1,1,1,1
+access_adb-tenantmgr_adb_servers_iam,adb.servers.iam,model_adb_servers_iam,,1,1,1,1
+access_adb-tenantmgr_adb_servers_fnd,adb.servers.fnd,model_adb_servers_fnd,,1,1,1,1
+access_adb-tenantmgr_adb_servers_hdsk,adb.servers.hdsk,model_adb_servers_hdsk,,1,1,1,1
+access_adb-tenantmgr_adb_license,adb.license,model_adb_license,,1,1,1,1

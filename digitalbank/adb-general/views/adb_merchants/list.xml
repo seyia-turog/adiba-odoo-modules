@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="adb-general.adb_merchants">
+      <field name="name">Merchants</field>
+      <field name="model">adb.merchant.cfg</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="encryption_key"/>
+          <field name="secret_key"/>
+          <field name="public_key"/>
+          <field name="provider"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="adb-general.adb_merchants_list">
+      <field name="name">Merchants</field>
+      <field name="res_model">adb.merchant.cfg</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

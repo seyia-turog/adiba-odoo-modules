@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="adb-transactions.adb_settlement_bank">
+      <field name="name">ADB Bank Settlement</field>
+      <field name="model">adb.settlement.bank</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="bank"/>
+          <field name="posting_date"/>
+          <field name="posting_rvsl_date"/>          
+          <field name="resource_rvsl_id"/>
+          <field name="resource_rvsl_date"/>
+          <field name="posting_ref"/>
+          <field name="tsq_count"/>
+          <field name="tsq_date"/>
+          <field name="tsq_is_done"/>
+          <field name="beneficiary_account_num"/>
+          <field name="beneficiary_inst_code"/>
+          <!-- <field name="merchant"/> -->
+          <field name="transaction_direction"/>
+          <field name="channel"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-transactions.action_settlement_bank_list">
+      <field name="name">adb-transactions window</field>
+      <field name="res_model">adb.settlement.bank</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

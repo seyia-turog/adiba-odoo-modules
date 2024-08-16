@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_adb-devices_adb_devices,adb.devices,model_adb_device,,1,1,1,1
+access_adb-devices_adb_devices_keypairs,adb.devices.keypairs,model_adb_device_keypair,,1,1,1,1
+access_adb-devices_adb_devices_transfers,adb.devices.transfers,model_adb_device_transfer,,1,1,1,1

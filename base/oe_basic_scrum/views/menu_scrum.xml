@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="parent_menu_project_scrum" name="Scrum" parent="project.menu_main_pm" sequence="3"/>
+    <menuitem id="menu_project_project" name="Project" parent="oe_basic_scrum.parent_menu_project_scrum"
+              action="project.open_view_project_all_config" sequence="1"/>
+    <menuitem id="menu_sprint_release" name="Release" parent="oe_basic_scrum.parent_menu_project_scrum"
+              action="oe_basic_scrum.win_action_sprint_release" sequence="3"/>
+    <menuitem id="menu_sprint" name="Sprint" parent="oe_basic_scrum.parent_menu_project_scrum"
+              action="oe_basic_scrum.win_action_sprint_task" sequence="4"/>
+    <menuitem id="menu_user_story" name="User Story" parent="oe_basic_scrum.parent_menu_project_scrum"
+              action="oe_basic_scrum.win_action_user_story" sequence="5"/>
+    <menuitem id="menu_tasks" name="Tasks" parent="oe_basic_scrum.parent_menu_project_scrum" action="oe_basic_scrum.win_action_tasks"
+              sequence="5"/>
+    <menuitem id="menu_scrum_meeting" name="Scrum Meeting" parent="oe_basic_scrum.parent_menu_project_scrum"
+              action="oe_basic_scrum.win_action_scrum_meeting" sequence="6"/>
+    <menuitem id="menu_scrum_team" name="Scrum Team" parent="oe_basic_scrum.parent_menu_project_scrum"
+              action="oe_basic_scrum.win_action_scrum_team" sequence="7"/>
+    <menuitem id="menu_project_document" name="Project Document" parent="oe_basic_scrum.parent_menu_project_scrum"
+              action="oe_basic_scrum.win_action_project_document" sequence="8"/>
+
+</odoo>

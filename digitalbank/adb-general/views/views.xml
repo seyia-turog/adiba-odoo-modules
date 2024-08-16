@@ -1,0 +1,19 @@
+<odoo>
+  <data>
+      <!-- Entities Search Vies -->
+      <record id="adb_entities_search" model="ir.ui.view">
+            <field name="name">adb.entity.view.search</field>
+          <field name="inherit_id" ref="base.view_res_partner_filter"/>
+          <field name="model">res.partner</field>
+          <field name="mode">primary</field>
+          <field name="arch" type="xml">
+              <filter name="type_company" position="after">
+                  <separator/>
+                  <filter string="Clients" name="client_rank" domain="[('client_rank', '>', '0')]"/>
+                  <filter string="Agents" name="agent_rank" domain="[('agent_rank', '>', '0')]"/>
+                  <filter string="Merchants" name="merchant_rank" domain="[('merchant_rank', '>', '0')]"/>
+              </filter>
+          </field>
+      </record> 
+  </data>
+</odoo>

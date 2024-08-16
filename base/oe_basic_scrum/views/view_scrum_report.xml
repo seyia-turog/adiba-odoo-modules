@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="oe_view_scrum_report_task" model="ir.ui.view">
+        <field name="name">oe.view.scrum.report.task</field>
+        <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <tree string="Task" multi_edit="1" create="0" editable="bottom">
+                <field name="project_id" invisible="1"/>
+                <field name="company_id" invisible="1"/>
+                <field name="x_sprint_id" readonly="1"/>
+                <field name="name" readonly="1"/>
+                <field name="user_ids" readonly="1"/>
+                <field name="description"/>
+                <field name="stage_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="oe_view_scrum_report_task_search" model="ir.ui.view">
+       <field name="name">oe.view.scrum.report.task.search</field>
+       <field name="model">project.task</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="x_sprint_id"/>
+                <field name="project_id"/>
+                <group expand="1" string="Group By">
+                    <filter string="Sprint" name="sprint" context="{'group_by': 'x_sprint_id'}"/>
+                </group>
+            </search>
+       </field>
+    </record>
+
+
+</odoo>

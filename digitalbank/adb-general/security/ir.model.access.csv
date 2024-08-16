@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_adb-general_adb_atms,adb.atms,model_adb_atm,,1,1,1,1
+access_adb-general_adb_pos,adb.pos,model_adb_pos,,1,1,1,1
+access_adb-general_adb_branches,adb.branches,model_adb_branch,,1,1,1,1
+access_adb-general_adb_merchants,adb.merchants,model_adb_merchant_cfg,,1,1,1,1
+access_adb-general_adb_locations,adb.locations,model_adb_location,,1,1,1,1
+access_adb-general_adb_refresh_tokens,adb.tokens.refresh,model_adb_tokens_refresh,,1,1,1,1
+access_adb-general_adb_merchant_services,adb.merchant_services,model_adb_merchant_service,,1,1,1,1
+access_adb-general_adb_merchant_service_categories,adb.merchant_service_categories,model_adb_merchant_service_category,,1,1,1,1
+access_adb-general_adb_atms,adb.atms,model_adb_atm,,1,1,1,1
+access_adb-general_adb_billers,adb.billers,model_adb_biller,,1,1,1,1
+access_adb-general_adb_billers_items,adb.billers_items,model_adb_biller_item,,1,1,1,1
+access_adb-general_adb_billers_categories,adb.billers_categories,model_adb_biller_category,,1,1,1,1
+access_adb-general_adb_billers_items_primeairtime,adb.billers_items_primeairtime,model_adb_biller_item_primeairtime,,1,1,1,1
+access_adb-general_adb_billers_items_hubtel,adb.billers_items_hubtel,model_adb_biller_item_hubtel,,1,1,1,1

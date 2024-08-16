@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-general.atm_list">
+      <field name="name">Teller Machines</field>
+      <field name="model">adb.atm</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="bank_id"/>
+          <field name="location_id"/>
+          <!-- <field name="atm_services"/> -->
+          <field name="merchant"/>
+          <field name="mini_statement"/>
+          <field name="atm_id"/>
+          <field name="terminal_id"/>
+          <field name="base_currency"/>
+          <field name="minimum_cash_amount"/>
+          <field name="pin_change"/>
+          <field name="active"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-general.action_atm_list">
+      <field name="name">Teller Machines</field>
+      <field name="res_model">adb.atm</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

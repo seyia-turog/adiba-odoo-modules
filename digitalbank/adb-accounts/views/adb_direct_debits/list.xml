@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-accounts.beneficiary_list">
+      <field name="name">Direct Debits</field>
+      <field name="model">adb.direct.debit</field>
+      <field name="arch" type="xml">
+        <tree>
+          <!-- <field name="tenant_name"/> TODO: Compute field from client model-->
+          <field name="client_id"/>
+          <field name="lookup_id"/>
+          <field name="account_num"/>
+          <field name="institution_code"/>
+          <field name="limit"/>
+          <field name="currency"/>
+          <field name="created"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-accounts.action_debits_list">
+      <field name="name">Direct Debits</field>
+      <field name="res_model">adb.direct.debit</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

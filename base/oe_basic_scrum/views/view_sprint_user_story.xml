@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="oe_basic_scrum_view_sprint_user_story_tree" model="ir.ui.view">
+        <field name="name">oe.sprint.user.story.tree</field>
+        <field name="model">sprint.user.story</field>
+        <field name="arch" type="xml">
+            <tree string="Sprint User Story" multi_edit="1">
+                <field name="x_story_id"/>
+                <field name="x_user_story" widget="html"/>
+                <field name="x_estimate_hour"/>
+                <field name="x_priority"/>
+                <field name="x_project_id" optional="show"/>
+                <field name="x_sprint_release_id" optional="show" domain="[('x_project_id', '=', x_project_id)]"/>
+                <field name="x_sprint_id" domain="[('x_sprint_release_id', '=', x_sprint_release_id)]"/>
+                <button type="object" class="btn btn-primary" string="TASKS" name="open_task"/>
+            </tree>
+        </field>
+    </record>
+    <record id="oe_basic_scrum_view_sprint_user_story_form" model="ir.ui.view">
+        <field name="name">oe.sprint.user.story.form</field>
+        <field name="model">sprint.user.story</field>
+        <field name="arch" type="xml">
+            <form string="Sprint User Story">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="x_story_id"
+                                   attrs="{'readonly': 1, 'invisible': [('x_story_id', '=', False )]}"
+                                   force_save="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="x_project_id" required="1"/>
+                            <field name="x_sprint_release_id" domain="[('x_project_id', '=', x_project_id)]"/>
+                            <field name="x_sprint_id" domain="[('x_sprint_release_id', '=', x_sprint_release_id)]"/>
+                        </group>
+                        <group>
+                            <field name="x_priority"/>
+                            <field name="x_estimate_hour"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="story" string="User Story">
+                            <field name="x_user_story" widget="html" required="1"/>
+                        </page>
+                        <page name="tasks" string="Tasks">
+                            <field name="x_task_ids" context="{'default_project_id': x_project_id}">
+                                <tree>
+                                    <field name="name" string="Task Name"/>
+                                    <field name="user_ids" widget="many2many_avatar_user"/>
+                                    <field name="stage_id"/>
+                                    <field name="x_sprint_id" invisible="1"/>
+                                    <field name="x_user_story_id" invisible="1"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group>
+                                            <group>
+                                                <field name="name"/>
+                                            </group>
+                                            <group>
+                                                <field name="user_ids" widget="many2many_tags"/>
+                                                <field name="company_id" invisible="1"/>
+                                                <field name="project_id" invisible="1"/>
+                                                <field name="stage_id" invisible="1"/>
+                                            </group>
+                                        </group>
+                                        <notebook>
+                                            <page name="description" string="Description">
+                                                <field name="description"/>
+                                            </page>
+                                        </notebook>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="oe_view_user_story_search" model="ir.ui.view">
+        <field name="name">view.user.story.search</field>
+        <field name="model">sprint.user.story</field>
+        <field name="arch" type="xml">
+            <search string="Search User Story">
+                <searchpanel>
+                    <field name="x_project_id" icon="fa-file" enable_counters="1"/>
+                    <field name="x_sprint_release_id" icon="fa-file" enable_counters="1"/>
+                    <field name="x_sprint_id" icon="fa-file" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+    <record id="win_action_user_story" model="ir.actions.act_window">
+        <field name="name">User Story</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sprint.user.story</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+
+</odoo>

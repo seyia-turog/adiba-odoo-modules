@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="adb-general.action_agent_list">
+        <field name="name">Agents</field>
+        <field name="res_model">res.partner</field>
+        <field name="search_view_id" ref="adb_entities_search"/>
+        <field name="context">{'search_default_agent_rank':True}</field>
+        <field name="view_mode">kanban,list,form</field>
+        </record>
+    </data>
+</odoo>

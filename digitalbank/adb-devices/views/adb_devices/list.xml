@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="adb-devices.adb_device_listing">
+      <field name="name">Device listing</field>
+      <field name="model">adb.device</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="client"/>
+          <field name="name"/>
+          <field name="platform"/>
+          <field name="model"/>
+          <field name="version"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="adb-devices.action_device_list">
+      <field name="name">Device Listings</field>
+      <field name="res_model">adb.device</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+   <record model="ir.actions.server" id="action_setpin">
+       <field name="name">Reset Device PIN</field>
+       <field name="binding_view_types">list,form</field>
+       <field name="model_id" ref="adb-devices.model_adb_device"/>
+       <field name="binding_model_id" ref="adb-devices.model_adb_device"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.action_setpin()
+       </field>
+   </record>
+
+   <record model="ir.actions.server" id="action_reset">
+       <field name="name">Change Device Code</field>
+       <field name="binding_view_types">list,form</field>
+       <field name="model_id" ref="adb-devices.model_adb_device"/>
+       <field name="binding_model_id" ref="adb-devices.model_adb_device"/>
+       <field name="state">code</field>
+       <field name="code">
+           action = records.action_reset()
+       </field>
+   </record>
+
+  </data>
+</odoo>

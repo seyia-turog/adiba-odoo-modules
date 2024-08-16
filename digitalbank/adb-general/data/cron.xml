@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<odoo>
+ <data noupdate="1">
+   <!-- <record id="adb_refresh_tokens" model="ir.cron">
+     <field name="name">Refresh Token Cleanup</field>
+     <field name="state">code</field>
+     <field name="code">model.token_cleanup()</field>
+     <field name="interval_type">days</field>
+     <field name="interval_number">1</field>
+     <field name="numbercall">-1</field>
+     <field name="doall">False</field>
+     <field name="priority">5</field>
+     <field name="active">False</field>
+     <field name="model_id">model_adb_tokens_refresh</field>
+   </record> -->
+   <record id="adb_merchant_authenticate" model="ir.cron">
+     <field name="name">Merchant Aunthentication: PRIMEAIRTIME</field>
+     <field name="state">code</field>
+     <field name="code">model.cron_primeairtime_authenticate()</field>
+     <field name="interval_type">days</field>
+     <field name="interval_number">1</field>
+     <field name="numbercall">-1</field>
+     <field name="doall">False</field>
+     <field name="priority">5</field>
+     <field name="active">False</field>
+     <field name="model_id" ref="model_adb_merchant_cfg"/>
+   </record>
+   <!-- <record id="adb_messages.process" model="ir.cron">
+     <field name="name">Message Recipeint Processing</field>
+     <field name="state">code</field>
+     <field name="code">model.cron_recipients_process()</field>
+     <field name="interval_type">minutes</field>
+     <field name="interval_number">1</field>
+     <field name="numbercall">-1</field>
+     <field name="doall">False</field>
+     <field name="priority">5</field>
+     <field name="active">False</field>
+     <field name="model_id" ref="model_adb_msg_inapp"/>
+   </record> -->
+ </data>
+</odoo>

@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="adb-transactions.adb_settlement_bill">
+      <field name="name">ADB Bill Settlement</field>
+      <field name="model">adb.settlement.bill</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="posting_date"/>
+          <field name="posting_rvsl_date"/>          
+          <field name="resource_rvsl_id"/>
+          <field name="resource_rvsl_date"/>
+          <field name="posting_ref"/>
+          <field name="tsq_count"/>
+          <field name="tsq_date"/>
+          <field name="tsq_is_done"/>
+          <field name="biller_item"/>
+          <!-- <field name="merchant"/> -->
+          <field name="transaction_direction"/>
+          <field name="channel"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-transactions.action_settlement_bill_list">
+      <field name="name">adb-transactions window</field>
+      <field name="res_model">adb.settlement.bill</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

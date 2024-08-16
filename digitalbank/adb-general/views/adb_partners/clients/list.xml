@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+  
+    <record id="adb_clients_list_view" model="ir.ui.view">
+      <field name="name"> adb.clients.list.view</field>
+      <field name="model">res.partner</field>        
+      <field name="mode">primary</field>
+      <field name="type">tree</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="display_name" />
+          <field name="external_id" />
+          <field name="email" />
+          <field name="phone" />
+          <field name="city" />
+          <field name="state_id" />
+          <field name="country_id" />
+        </tree>
+      </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="adb-general.action_client_list">
+      <field name="name">Clients</field>
+      <field name="res_model">res.partner</field>
+      <field name="search_view_id" ref="adb_entities_search"/>
+      <field name="context">{'search_default_client_rank':True}</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="view_ids" eval="[
+        (5,0,0),
+        (0,0,{'view_mode':'tree','view_id':ref('adb_clients_list_view')}),
+        (0,0,{'view_mode':'form','view_id':ref('adb_clients_view_form')})]"
+        />
+    </record>
+
+  </data>
+</odoo>

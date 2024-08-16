@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-transactions.adb_settlement_loan">
+      <field name="name">ADB Loan Disbursement </field>
+      <field name="model">adb.settlement.loan</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="resource_id"/>
+          <field name="source_ref"/>
+          <field name="account_num"/>
+          <field name="account_id"/>
+          <field name="amount"/>
+          <field name="transaction_ref"/>
+          <field name="posting_date"/>
+          <field name="posting_rvsl_date"/>          
+          <field name="paycode_trans_id"/>
+          <field name="nip_tsq_count"/>
+          <field name="nip_tsq_date"/>
+          <field name="nip_tsq_is_done"/>
+          <field name="beneficiary_inst_code"/>
+          <field name="transaction_direction"/>
+          <field name="channel"/>
+          <field name="modified"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-transactions.action_settlement_loan_list">
+      <field name="name">adb-transactions window</field>
+      <field name="res_model">adb.settlement.loan</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

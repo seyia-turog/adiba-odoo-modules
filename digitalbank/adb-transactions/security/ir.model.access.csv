@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_adb_settlement_bank,adb.settlement.bank,model_adb_settlement_bank,,1,1,1,1
+access_adb_mandate_order,adb.mandate.order,model_adb_mandate_order,,1,1,1,1
+access_adb_mandate_register,adb.mandate.register,model_adb_mandate_register,,1,1,1,1
+access_adb_settlement_bill,adb.settlement.bill,model_adb_settlement_bill,,1,1,1,1
+access_adb_settlement_card,adb.settlement.card,model_adb_settlement_card,,1,1,1,1
+access_adb_settlement_cardless,adb.settlement.cardless,model_adb_settlement_cardless,,1,1,1,1
+access_adb_settlement_collections,adb.settlement.collections,model_adb_settlement_collections,,1,1,1,1
+access_adb_settlement_inward,adb.settlement.inward,model_adb_settlement_inward,,1,1,1,1
+access_adb_settlement_loan,adb.settlement.loan,model_adb_settlement_loan,,1,1,1,1
+access_adb_settlement_wallet,adb.settlement.wallet,model_adb_settlement_wallet,,1,1,1,1

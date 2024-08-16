@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_adb-account_adb-card-debits,adb.card.debit,model_adb_card_debit,,1,1,1,1
+access_adb-account_adb-card-issuances,adb.card.issuance,model_adb_card_issuance,,1,1,1,1
+access_adb-account_adb-direct-debits,adb.direct.debit,model_adb_direct_debit,,1,1,1,1
+access_adb-account_adb_lookups_account,adb.lookup.account,model_adb_lookup_account,,1,1,1,1
+access_adb-account_adb_lookups_bvn,adb.lookup.bvn,model_adb_lookup_bvn,,1,1,1,1
+access_adb-account_adb_lookups_identity,adb.lookup.identity,model_adb_lookup_identity,,1,1,1,1
+access_adb-account_adb_beneficiaries,adb.beneficiary,model_adb_beneficiary,,1,1,1,1

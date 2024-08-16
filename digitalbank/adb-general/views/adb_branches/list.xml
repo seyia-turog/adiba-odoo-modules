@@ -1,0 +1,21 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-general.branch_list">
+      <field name="name">Branches</field>
+      <field name="model">adb.branch</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="bank_id"/>
+          <field name="location_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-general.action_branch_list">
+      <field name="name">Branches</field>
+      <field name="res_model">adb.branch</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

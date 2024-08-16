@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="adb-tenantmgr.adb_servers_hdsk">
+      <field name="name">Helpdesk Applications</field>
+      <field name="model">adb.servers.hdsk</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="tenant_id"/>
+          <field name="model"/>
+          <field name="url"/>
+          <field name="username"/>
+          <field name="database"/>
+          <field name="sandbox"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="adb-tenantmgr.adb_servers_hdsk_list">
+      <field name="name">Helpdesk Applications</field>
+      <field name="res_model">adb.servers.hdsk</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+  </data>
+</odoo>

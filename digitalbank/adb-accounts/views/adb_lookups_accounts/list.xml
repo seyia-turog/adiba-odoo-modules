@@ -1,0 +1,23 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-accounts.adb_lookups_account">
+      <field name="name">Account Lookups</field>
+      <field name="model">adb.lookup.account</field>
+      <field name="arch" type="xml">
+        <tree>
+          <!-- <field name="tenant_name"/> TODO: Compute field from client model-->
+          <field name="bank_id"/>
+          <field name="account_no"/>
+          <field name="beneficiary_name"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-accounts.adb_lookups_account_list">
+      <field name="name">Account Lookups</field>
+      <field name="res_model">adb.lookup.account</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

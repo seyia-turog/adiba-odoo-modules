@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_scrum_team,access.scrum.team,model_scrum_team,base.group_user,1,1,1,1
+access_sprint_release,access.sprint.release,model_sprint_release,base.group_user,1,1,1,1
+access_sprint_task,access.sprint.task,model_sprint_task,base.group_user,1,1,1,1
+access_scrum_meeting,access.scrum.meeting,model_scrum_meeting,base.group_user,1,1,1,1
+access_project_document,access.project.document,model_project_document,base.group_user,1,1,1,1
+access_sprint_user_story,access.sprint.user.story,model_sprint_user_story,base.group_user,1,1,1,1

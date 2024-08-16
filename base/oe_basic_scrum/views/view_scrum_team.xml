@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="oe_view_scrum_team_form" model="ir.ui.view">
+        <field name="name">view.scrum.team.form</field>
+        <field name="model">scrum.team</field>
+        <field name="arch" type="xml">
+            <form string="Scrum Team">
+                <sheet>
+                    <group>
+                        <field name="x_name"/>
+                        <field name="x_member_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="oe_view_scrum_team_tree" model="ir.ui.view">
+        <field name="name">view.scrum.team.tree</field>
+        <field name="model">scrum.team</field>
+        <field name="arch" type="xml">
+            <tree string="Scrum Team Tree">
+                <field name="x_name"/>
+                <field name="x_member_text" widget="html" string="Members"/>
+            </tree>
+        </field>
+    </record>
+    <record id="win_action_scrum_team" model="ir.actions.act_window">
+        <field name="name">Scrum Team</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">scrum.team</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+            </p>
+            <p>
+                <!-- More details about what a user can do with this object will be OK -->
+            </p>
+        </field>
+    </record>
+</odoo>

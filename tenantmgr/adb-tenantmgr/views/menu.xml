@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+        <data>
+            <!-- Add your code here -->
+            <menuitem name="Tenants" id="adb-tenantmgr.adb-tenants-mgr" sequence="10"/>
+            
+            <menuitem name="Tenants" id="adb-tenantmgr.adb-tenants-config" parent="adb-tenantmgr.adb-tenants-mgr" sequence="10" />
+            <menuitem name="Servers" id="adb-tenantmgr.adb-severs-config" parent="adb-tenantmgr.adb-tenants-mgr" sequence="20" />
+
+            <!-- Tenant list -->
+            <menuitem name="Tenants" id="adb-tenantmgr.adb_tenant_menu" parent="adb-tenantmgr.adb-tenants-config"  action="adb-tenantmgr.action_tenant_list" sequence="10"/>
+            <menuitem name="Administrators" id="adb-tenantmgr.adb_tenant_admin_menu" parent="adb-tenantmgr.adb-tenants-config" action="adb-tenantmgr.adb_tenant_admin_list" sequence="20"/>
+            <menuitem name="Key Contacts" id="adb-tenantmgr.adb_tenant_contacts_menu" parent="adb-tenantmgr.adb-tenants-config" action="adb-tenantmgr.adb_tenant_contacts_list" sequence="30"/>
+
+            <!-- Server list -->
+            <menuitem name="Identity &amp; Access Managers" id="adb-tenantmgr.adb_servers_iam_menu" parent="adb-tenantmgr.adb-severs-config" action="adb-tenantmgr.adb_servers_iam_list" sequence="10"/>
+            <menuitem name="Core Banking Applications" id="adb-tenantmgr.adb_servers_cba_menu" parent="adb-tenantmgr.adb-severs-config" action="adb-tenantmgr.adb_servers_cba_list" sequence="20"/>
+            <menuitem name="Enterprise Resource Planners" id="adb-tenantmgr.adb_servers_erp_menu" parent="adb-tenantmgr.adb-severs-config" action="adb-tenantmgr.adb_servers_erp_list" sequence="30"/>
+            <menuitem name="Process Automation Managers" id="adb-tenantmgr.adb_servers_bpm_menu" parent="adb-tenantmgr.adb-severs-config" action="adb-tenantmgr.adb_servers_bpm_list" sequence="40"/>
+            <menuitem name="Foundation Service Managers" id="adb-tenantmgr.adb_servers_fnd_menu" parent="adb-tenantmgr.adb-severs-config" action="adb-tenantmgr.adb_servers_fnd_list" sequence="50"/>
+            <menuitem name="Helpdesk Service Managers" id="adb-tenantmgr.adb_servers_hdsk_menu" parent="adb-tenantmgr.adb-severs-config" action="adb-tenantmgr.adb_servers_hdsk_list" sequence="60"/>
+            
+        </data>
+</odoo>

@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="adb-transactions.adb_mandate_orders">
+      <field name="name">Standing Instructions</field>
+      <field name="model">adb.mandate.order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="partner"/>
+          <field name="frequency"/>
+          <field name="batch"/>
+          <field name="date"/>
+          <field name="status"/>
+          <field name="source_type"/>
+          <field name="source_ref"/>
+          <field name="amount"/>
+          <field name="expiry"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="adb-transactions.action_mandate_orders_list">
+      <field name="name">Standing Instructions</field>
+      <field name="res_model">adb.mandate.order</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+  </data>
+</odoo>

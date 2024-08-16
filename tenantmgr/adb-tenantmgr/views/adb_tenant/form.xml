@@ -1,0 +1,39 @@
+<odoo>
+    <data> 
+        <record id="adb_tenants_view_form" model="ir.ui.view">
+            <field name="name">adb.tenants.view.form</field>
+            <field name="model">res.partner</field>
+            <field name="mode">primary</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="replace" > 
+                    <field name='tenant_ref' readonly='True'/> 
+                    <field name='tenant_rank' default="10"/>
+                </xpath>
+                <notebook position="replace">
+                    <notebook>
+                        <page string="Core Banking" name="cba_configuration">
+                            <field name="cba_configuration"/>
+                        </page>
+                        <page string="Enterprise Resource Planner" name="cba_configuration">
+                            <field name="erp_configuration"/>
+                        </page>
+                        <page string="Helpdesk Solution" name="cba_configuration">
+                            <field name="hdsk_configuration"/>
+                        </page>
+                        <page string="Foundation Service" name="cba_configuration">
+                            <field name="fnd_configuration"/>
+                        </page>
+                        <page string="Identity Manager" name="cba_configuration">
+                            <field name="iam_configuration"/>
+                        </page>
+                        <page string="Automation Servers" name="cba_configuration">
+                            <field name="bpm_configuration"/>
+                        </page>
+                    </notebook>
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

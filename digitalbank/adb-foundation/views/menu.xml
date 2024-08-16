@@ -1,0 +1,73 @@
+<odoo>
+  <data>
+    <menuitem name="Neobanks" id="adb-foundation.menu_root" sequence="10"/>
+    
+    <menuitem name="Entities" id="adb-foundation.entities_root" parent="adb-foundation.menu_root" sequence="10"/>
+    <menuitem name="Centers" id="adb-foundation.locations_root" parent="adb-foundation.menu_root" sequence="20"/>
+    <menuitem name="Clients" id="adb-foundation.clients_root" parent="adb-foundation.menu_root" sequence="30"/>
+    <menuitem name="Contents" id="adb-foundation.contents_root" parent="adb-foundation.menu_root" sequence="40"/>
+    <menuitem name="Transactions" id="adb-foundation.transactions_root" parent="adb-foundation.menu_root" sequence="50"/>
+    <menuitem name="Configuration" id="adb-foundation.configuration_root" parent="adb-foundation.menu_root" sequence="99"/>
+
+    <!-- Entities -->
+    <menuitem name="Clients" id="adb-general.adb_partners_client_menu" parent="adb-foundation.entities_root"  action="adb-general.action_client_list" sequence="10"/>
+    <menuitem name="Agents" id="adb-general.adb_partners_agent_menu" parent="adb-foundation.entities_root"  action="adb-general.action_agent_list" sequence="20"/>
+    <menuitem name="Merchants" id="adb-general.adb_partners_merchant_menu" parent="adb-foundation.entities_root"  action="adb-general.action_merchant_list" sequence="40"/>
+
+    <!-- Centers -->
+    <!-- <menuitem name="Banks" id="adb-general.adb_banks_menu" parent="adb-foundation.locations_root" action="adb-general.adb_banks_local_list"/> -->
+    <menuitem name="Branches" id="adb-general.adb_branches_menu" parent="adb-foundation.locations_root"  action="adb-general.action_branch_list"/>
+    <menuitem name="Terminals" id="adb-general.adb_terminals_menu" parent="adb-foundation.locations_root" sequence="30"/>
+    <menuitem name="ATM Terminals" id="adb-general.adb_atms_menu" parent="adb-general.adb_terminals_menu"  action="adb-general.action_atm_list" sequence="10"/>
+    <menuitem name="POS Terminals" id="adb-general.adb_pos_menu" parent="adb-general.adb_terminals_menu"  action="adb-general.action_pos_list" sequence="20"/>
+    
+    <!-- Contents -->
+    <menuitem name="Banners &amp; Ads" id="adb-content.adb_banners_menu" parent="adb-foundation.contents_root" action="adb-content.action_banners_list"/>
+    <menuitem name="Dynamic Alerts" id="adb-content.adb_alerts_menu" parent="adb-foundation.contents_root" action="adb-content.action_alerts_list"/>
+    <menuitem name="In-App Messages"  id="adb-content.adb_messages_menu" parent="adb-foundation.contents_root" action="adb-content.action_messages_list"/>
+    <menuitem name="Message Logs"  id="adb-content.adb_message_logs_menu" parent="adb-foundation.contents_root"/>
+
+    <menuitem name="SMS Logs" id="adb-content.adb_sms_logs_menu" parent="adb-content.adb_message_logs_menu" action="adb-content.action_sms_logs_list"/>
+    <menuitem name="Push Logs" id="adb-content.adb_push_logs_menu" parent="adb-content.adb_message_logs_menu" action="adb-content.action_push_logs_list"/>
+    <menuitem name="Email Logs" id="adb-content.adb_email_logs_menu" parent="adb-content.adb_message_logs_menu" action="adb-content.action_email_logs_list"/>
+
+    <!-- Clients -->
+    <menuitem name="Beneficiaries" id="adb-accounts.adb_beneficiaries_menu" parent="adb-foundation.clients_root" action="adb-accounts.action_beneficiary_list" sequence="10"/>
+    <menuitem name="Card Management" id="adb-accounts.adb_cardmgr_menu" parent="adb-foundation.clients_root" sequence="16"/>
+    <menuitem name="Direct Debits" id="adb-accounts.adb_debits_menu" parent="adb-foundation.clients_root" action="adb-accounts.action_debits_list" sequence="20"/>
+
+    <menuitem name="Internal Cards" id="adb-accounts.adb_cardmgr_internal_menu" parent="adb-accounts.adb_cardmgr_menu" action="adb-accounts.action_cards_internal_list" sequence="10"/>
+    <menuitem name="External Cards" id="adb-accounts.adb_cardmgr_external_menu" parent="adb-accounts.adb_cardmgr_menu" action="adb-accounts.action_cards_external_list" sequence="20"/>
+
+    <!-- Transactions -->
+    <menuitem name="Outward Payments" id="adb-transactions.adb-outwards_menu" parent="adb-foundation.transactions_root" sequence="10" />
+    <menuitem name="Inward Payments" id="adb-transactions.adb-inwards_menu" parent="adb-foundation.transactions_root" sequence="20" />
+
+    <menuitem name="Bank Transfers" id="adb-transactions.adb_settlement_banks_menu" parent="adb-transactions.adb-outwards_menu" action="adb-transactions.action_settlement_bank_list" sequence="10"/>
+    <menuitem name="Bill Payments" id="adb-transactions.adb_settlement_bills_menu" parent="adb-transactions.adb-outwards_menu" action="adb-transactions.action_settlement_bill_list" sequence="20"/>
+    <menuitem name="Card Debits" id="adb-transactions.adb_settlement_cards_menu" parent="adb-transactions.adb-outwards_menu" action="adb-transactions.action_settlement_card_list" sequence="30"/>
+    <menuitem name="Cardless Withdrawals" id="adb-transactions.adb_settlement_cardlesss_menu" parent="adb-transactions.adb-outwards_menu" action="adb-transactions.action_settlement_cardless_list" sequence="40"/>
+    <menuitem name="Inward Transfers" id="adb-transactions.adb_settlement_inwards_menu" parent="adb-transactions.adb-inwards_menu" action="adb-transactions.action_settlement_inward_list" sequence="10"/>
+    <menuitem name="Loan Disbursement" id="adb-transactions.adb_settlement_loans_menu" parent="adb-transactions.adb-inwards_menu" action="adb-transactions.action_settlement_loan_list" sequence="20"/>
+    <menuitem name="Agency Collections" id="adb-transactions.adb_settlement_collectionss_menu" parent="adb-transactions.adb-inwards_menu" action="adb-transactions.action_settlement_collections_list" sequence="30"/>
+
+    <!-- Configuration -->
+    <!-- <menuitem name="Banks" id="adb-general.adb-banks_menu" parent="adb-foundation.configuration_root" sequence="30" /> -->
+    <menuitem name="Mandates" id="adb-transactions.adb-mandates_menu" parent="adb-foundation.configuration_root" sequence="40" />
+
+    <menuitem name="Lookups" id="adb-accounts.adb-lookups_menu" parent="adb-foundation.configuration_root" sequence="60" />
+    <menuitem name="Devices" id="adb-devices.adb-devices_menu" parent="adb-foundation.configuration_root" sequence="70" />
+    <!-- <menuitem name="Local Banks" id="adb-general.adb_banks_local" parent="adb-general.adb-banks_menu" action="adb-general.adb_banks_local_list" sequence="10"/> -->
+
+    <menuitem name="Standing Instructions" id="adb-transactions.adb_mandate_orders_menu" parent="adb-transactions.adb-mandates_menu" action="adb-transactions.action_mandate_orders_list" sequence="10"/>
+    <menuitem name="Mandate Register (Jobs)" id="adb-transactions.adb_mandate_register_menu" parent="adb-transactions.adb-mandates_menu" action="adb-transactions.action_mandate_register_list" sequence="20"/>
+    
+    <menuitem name="Account Lookups" id="adb-accounts.adb_lookups_account_menu" parent="adb-accounts.adb-lookups_menu" action="adb-accounts.adb_lookups_account_list" sequence="10"/>
+    <menuitem name="BVN Lookups" id="adb-accounts.adb_lookups_bvn_menu" parent="adb-accounts.adb-lookups_menu" action="adb-accounts.adb_lookups_bvn_list" sequence="20"/>
+
+    <menuitem name="Device Listing" id="adb-devices.adb_device_listing_menu" parent="adb-devices.adb-devices_menu" action="adb-devices.action_device_list" sequence="10"/>
+    <menuitem name="Device Transfers" id="adb-devices.adb_device_transfers_menu" parent="adb-devices.adb-devices_menu" action="adb-devices.action_device_transfers_list" sequence="10"/> 
+    <menuitem name="Keypair Manager" id="adb-devices.adb_keypair_manager_menu" parent="adb-devices.adb-devices_menu" action="adb-devices.action_keypair_manager_list" sequence="30"/>
+
+  </data>
+</odoo>

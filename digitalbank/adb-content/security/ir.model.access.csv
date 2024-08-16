@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_adb-content_adb_msg_banner,adb.msg.banner,model_adb_msg_banner,,1,1,1,1
+access_adb-content_adb_msg_inapp,adb.msg.inapp,model_adb_msg_inapp,,1,1,1,1
+access_adb-content_adb_msg_logs,adb.msg.log,model_adb_msg_log,,1,1,1,1
+access_adb-content_adb_msg_templates,adb.msg.template,model_adb_msg_template,,1,1,1,1
