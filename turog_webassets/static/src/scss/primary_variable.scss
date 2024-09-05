@@ -6,7 +6,7 @@
       @font-face {
         font-family: $font-family;
         font-weight: $style;
-        src: url($font-path#{$font-family}-#{$filename}.#{$extension}) format('#{$extension}')
+        src: url('#{$font-path}#{$font-family}-#{$filename}.#{$extension}') format('#{$extension}')
       }
     }
   }
