@@ -1,28 +1,48 @@
-@mixin define-font-family($font-path, $font-family, $styles) {  
-    @each $style, $filename in $styles {
-      @font-face {
-        font-family: $font-family;
-        font-weight: $style;
-        src: url('#{$font-path}/#{$font-family}-#{$filename}.ttf') format('truetype')
-      }
-    }
-  }
-
-
-@include define-font-family("/turog_webassets/static/src/fonts/THICCCBOI", "THICCCBOI", (
-  100: "Thin",
-  200: "Light",
-  300: "SemiBold",
-  400: "Regular",
-  500: "SemiBold",
-  600: "Bold",
-  700: "ExtraBold",
-  800: "Black",
-));
+@font-face {
+  font-family: 'THICCCBOI';
+  font-weight: 200;
+  src: url('/turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Thin.ttf') format('truetype')
+}
 
 @font-face {
-    font-family: 'Pavelt';
-    src: url('/turog_webassets/static/src/fonts/Pavelt/Pavelt.ttf') format('truetype')
+  font-family: 'THICCCBOI';
+  font-weight: 300;
+  src: url('/turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Light.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'THICCCBOI';
+  font-weight: 400;
+  src: url('/turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Regular.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'THICCCBOI';
+  font-weight: 500;
+  src: url('/turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-SemiBold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'THICCCBOI';
+  font-weight: 600;
+  src: url('/turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Bold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'THICCCBOI';
+  font-weight: 700;
+  src: url('/turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-ExtraBold.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'THICCCBOI';
+  font-weight: 800;
+  src: url('/turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Black.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: 'Pavelt';
+  src: url('/turog_webassets/static/src/fonts/Pavelt/Pavelt.ttf') format('truetype')
 }
 
 $o-theme-font-configs: map-merge($o-theme-font-configs, (
