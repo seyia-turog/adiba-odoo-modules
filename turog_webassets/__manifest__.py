@@ -44,7 +44,7 @@ TUROG Odoo Website CSS & JS assets
            "turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Regular.ttf",
            "turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-SemiBold.ttf",
            "turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-ThicccAF.ttf",
-           "turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Thin.ttf",
+           "turog_webassets/static/src/fonts/THICCCBOI/THICCCBOI-Thin.ttf"
        ]
    },
 }
