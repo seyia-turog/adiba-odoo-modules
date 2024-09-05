@@ -1,22 +1,26 @@
-@mixin define-font-family($font-family, $styles, $extension: woff2) {
-    $font-path: "../fonts/#{$font-family}/";
+@mixin define-font-family($font-family, $styles) {
+    $font-path: "../fonts/#{$font-family}";
     //Logic will fail for ttf. format should be truetype in that case
   
     @each $style, $filename in $styles {
       @font-face {
         font-family: $font-family;
         font-weight: $style;
-        src: url(#{$font-path}#{$font-family}-#{$filename}.#{$extension}) format('#{$extension}')
+        src: url('#{$font-path}/#{$font-family}-#{$filename}.ttf') format('truetype')
       }
     }
   }
 
 
 @include define-font-family("THICCCBOI", (
-    100: "Light",
-    300: "SemiBold",
-    400: "Regular",
-    700: "Bold"
+  100: "Thin",
+  200: "Light",
+  300: "SemiBold",
+  400: "Regular",
+  500: "SemiBold",
+  600: "Bold",
+  700: "ExtraBold",
+  800: "Black",
 ));
 
 @font-face {
