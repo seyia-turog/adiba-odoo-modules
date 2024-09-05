@@ -1,5 +1,5 @@
 @mixin define-font-family($font-family, $styles, $extension: woff2) {
-    $font-path: "/turog_webassets/static/src/fonts/#{$font-family}/";
+    $font-path: "../fonts/#{$font-family}/";
     //Logic will fail for ttf. format should be truetype in that case
   
     @each $style, $filename in $styles {
