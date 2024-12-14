@@ -22,7 +22,7 @@ class OpenIDLogin(OAuthLogin):
             if flow in ("id_token", "id_token_code"):
                 params = url_decode(provider["auth_link"].split("?")[-1])
                 #14/12/24: Remove state .. causes error with WSO2IS7 - Seyi Akamo
-                params["state"] = None
+                params["state"] = ""
                 # nonce
                 params["nonce"] = secrets.token_urlsafe()
                 # response_type
