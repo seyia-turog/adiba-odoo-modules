@@ -27,7 +27,8 @@ class OpenIDLogin(OAuthLogin):
             if flow in ("id_token", "id_token_code"):
                 params = url_decode(provider["auth_link"].split("?")[-1])
                 #14/12/24: Remove illegal character from state .. causes error with WSO2IS7 - Seyi Akamo
-                params["state"] = base64.urlsafe_b64encode(params["state"])
+                state_str = params.get("state")
+                params["state"] = base64.urlsafe_b64encode(state_str.encode('utf-8'))
                 # nonce
                 params["nonce"] = secrets.token_urlsafe()
                 # response_type
@@ -68,7 +69,7 @@ class OpenIDLogin(OAuthLogin):
             # URL-safe decode and handle potential padding issues:
             encoded_state = kw['state']
             try:
-                state_bytes = base64.urlsafe_b64decode(encoded_state.encode('utf-8'))
+                state_bytes = base64.urlsafe_b64decode(encoded_state)
             except base64.binascii.Error:  # Padding error
                 padding = len(encoded_state) % 4
                 if padding > 0:
