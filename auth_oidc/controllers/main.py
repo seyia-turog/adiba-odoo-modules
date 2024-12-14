@@ -85,7 +85,6 @@ class OpenIDLogin(OAuthLogin):
             
             if 'state' in all_query_params:
                 state = simplejson.loads(state_str)  # state_str comes from your existing decoding logic
-                state.update(all_query_params) # Update with existing params
                 all_query_params['state'] = simplejson.dumps(state)
 
             query_string = url_encode(all_query_params) # Encode the complete set of query params
