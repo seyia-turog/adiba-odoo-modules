@@ -21,8 +21,6 @@ class ResUsers(models.Model):
         return params.get("access_token"), params.get("id_token")
 
     def _auth_oauth_get_tokens_auth_code_flow(self, oauth_provider, params):
-        _logger.debug("params: %s", params)
-        _logger.debug("oauth_provider: %s", oauth_provider)
         # https://openid.net/specs/openid-connect-core-1_0.html#AuthResponse
         code = params.get("code")
         # https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
@@ -41,6 +39,7 @@ class ResUsers(models.Model):
             auth=auth,
             timeout=10,
         )
+        _logger.info("oauth_provider: %s", response.json())
         response.raise_for_status()
         response_json = response.json()
         # https://openid.net/specs/openid-connect-core-1_0.html#TokenResponse
