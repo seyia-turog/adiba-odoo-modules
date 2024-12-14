@@ -16,8 +16,6 @@ from werkzeug.urls import url_decode, url_encode, url_parse, url_join
 
 from odoo.addons.auth_oauth.controllers.main import OAuthLogin
 
-from odoo.addons.web.controllers.main import set_cookie_and_redirect
-
 
 _logger = logging.getLogger(__name__)
 
@@ -65,7 +63,7 @@ class OpenIDLogin(OAuthLogin):
             if 'state' not in kw:
                 _logger.error("OAuth2: No state parameter found.")
                 url = "/web/login?oauth_error=2"  # Or handle as appropriate
-                return set_cookie_and_redirect(url)
+                return werkzeug.utils.redirect(url)
 
             # URL-safe decode and handle potential padding issues:
             encoded_state = kw['state']
@@ -76,7 +74,7 @@ class OpenIDLogin(OAuthLogin):
                 if padding > 0:
                     encoded_state += '=' * (4 - padding)
                 state_bytes = base64.urlsafe_b64decode(encoded_state)
-                
+
             state_str = state_bytes.decode('utf-8') # Decode bytes to string (UTF-8)
 
             original_url = http.request.httprequest.url
@@ -96,10 +94,10 @@ class OpenIDLogin(OAuthLogin):
         except (ValueError, TypeError, simplejson.JSONDecodeError, KeyError) as e:  # Handle all possible exceptions
             _logger.exception("OAuth2 error: %s", str(e))  # Log the exception for debugging
             url = "/web/login?oauth_error=2"  # Handle errors gracefully
-            return set_cookie_and_redirect(url)
+            return werkzeug.utils.redirect(url)
 
 
         except Exception as e:  
             _logger.exception("OAuth2: Unexpected error: %s", str(e))
             url = "/web/login?oauth_error=2"
-            return set_cookie_and_redirect(url)
+            return werkzeug.utils.redirect(url)
