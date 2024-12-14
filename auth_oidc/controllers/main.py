@@ -68,7 +68,7 @@ class OpenIDLogin(OAuthLogin):
             # URL-safe decode and handle potential padding issues:
             encoded_state = kw['state']
             try:
-                state_bytes = base64.urlsafe_b64decode(encoded_state)
+                state_bytes = base64.urlsafe_b64decode(encoded_state.encode('utf-8'))
             except base64.binascii.Error:  # Padding error
                 padding = len(encoded_state) % 4
                 if padding > 0:
