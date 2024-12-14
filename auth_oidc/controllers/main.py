@@ -29,7 +29,7 @@ class OpenIDLogin(OAuthLogin):
                 #14/12/24: Remove illegal character from state .. causes error with WSO2IS7 - Seyi Akamo
                 state_str = params.get("state")
                 params["state"] = base64.urlsafe_b64encode(state_str.encode('utf-8'))
-                params["callback"] = "https://turog.ng/oidc/signin"
+                params["redirect_uri"] = "https://turog.ng/oidc/signin"
                 # nonce
                 params["nonce"] = secrets.token_urlsafe()
                 # response_type
