@@ -6,9 +6,10 @@ from odoo import http
 from odoo.http import request
 from odoo.addons.web.controllers.home import Home
 from odoo.addons.web.controllers.utils import ensure_db
+from . import main
 
 import werkzeug.utils
-from werkzeug.urls import url_encode, url_decode
+from werkzeug.urls import url_encode, url_decode, url_quote
 
 
 _logger = logging.getLogger(__name__)
@@ -23,29 +24,21 @@ class CustomAuth(Home):
             return super().web_login(*args, **kw)
         
         try:
-            provider = request.env['auth.oauth.provider'].sudo().search([('enabled', '=', True)], limit=1)
-            if not provider:
-                _logger.warning("No suitable OAuth providers found.")
-                return super().web_login(*args, **kw) # Fallback if no provider
 
-            state = {
-                'r': kw.get('redirect') or '/',
-                'csrf_token': request.csrf_token()  # Essential for security
-            }
+            oidc_login = main.OpenIDLogin()
+            providers = oidc_login.list_providers()
 
+            if not providers or not isinstance(providers, list) or not providers[0].get('auth_link'): # basic validation check
+                _logger.error("Could not retrieve valid providers or auth_link from OpenIDLogin.")
+                return super().web_login(*args, **kw)
 
-            params = dict(url_decode(provider.auth_endpoint.split("?")[-1])) # convert mapping to dict
-            state_str = simplejson.dumps(state)
-            params["state"] = base64.urlsafe_b64encode(state_str.encode('utf-8')).decode("utf-8")  # Encode and decode to string
+            auth_url = providers[0].get('auth_link')  # Get the first provider's auth_link
 
-            params["redirect_uri"] = request.httprequest.url_root + "oidc/signin"
-            auth_url = f"{provider.auth_endpoint}?{url_encode(params)}"
             return werkzeug.utils.redirect(auth_url)
-
-        except Exception as e:
-            _logger.exception("Error in OAuth redirect: %s", e)
-            return super().web_login(*args, **kw)
         
+        except Exception as e:
+            _logger.exception("Error in web_login: %s", e)
+            return super().web_login(*args, **kw)
 
     @http.route('/web/session/logout', type='http', auth="none")
     def logout(self, redirect='/'):  
