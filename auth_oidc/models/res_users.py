@@ -39,7 +39,7 @@ class ResUsers(models.Model):
             auth=auth,
             timeout=10,
         )
-        _logger.info("oauth_provider: %s", response.json())
+
         response.raise_for_status()
         response_json = response.json()
         # https://openid.net/specs/openid-connect-core-1_0.html#TokenResponse
