@@ -9,7 +9,7 @@
                 <field name="positive_rate_percentage" />
                 <field name="rating_status" />
             </field>
-            //NOTE: This is a workaround to display the rating percentage in the kanban view.
+            <!-- NOTE: This is a workaround to display the rating percentage in the kanban view. -->
             <xpath expr="//div[hasclass('oe_kanban_bottom_right')]" position="inside">
                 <div
                     t-if="record.rating_status != 'no_rate'"
@@ -29,11 +29,13 @@
                     </b>
                 </div>
             </xpath>
-            <xpath expr="//t[@t-name='menu']//a[1]/.." position="after">
+            <!-- Add Customer Rating menu item to kanban dropdown -->
+            <xpath expr="//t[@t-name='kanban-menu']//div[@role='separator']" position="after">
                 <a
                     name="action_view_ticket_rating"
                     type="object"
                     class="dropdown-item"
+                    role="menuitem"
                 >Customer Rating</a>
             </xpath>
         </field>
