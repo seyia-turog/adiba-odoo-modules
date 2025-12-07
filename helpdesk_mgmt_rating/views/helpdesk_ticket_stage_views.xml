@@ -5,7 +5,8 @@
         <field name="model">helpdesk.ticket.stage</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='mail_template_id']" position="after">
+            <!-- Add rating_mail_template_id field after mail_template_id in the main_left group -->
+            <xpath expr="//group[@name='main_left']//field[@name='mail_template_id']" position="after">
                 <field name="rating_mail_template_id" />
             </xpath>
         </field>
@@ -15,6 +16,7 @@
         <field name="model">helpdesk.ticket.stage</field>
         <field name="inherit_id" ref="helpdesk_mgmt.view_helpdesk_ticket_stage_tree" />
         <field name="arch" type="xml">
+            <!-- Add rating_mail_template_id field after mail_template_id in tree view -->
             <xpath expr="//field[@name='mail_template_id']" position="after">
                 <field name="rating_mail_template_id" />
             </xpath>
