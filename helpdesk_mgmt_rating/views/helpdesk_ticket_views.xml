@@ -9,7 +9,8 @@
                 <field name="positive_rate_percentage" />
                 <field name="rating_status" />
             </field>
-            <xpath expr="//footer" position="inside">
+            //NOTE: This is a workaround to display the rating percentage in the kanban view.
+            <xpath expr="//div[hasclass('oe_kanban_bottom_right')]" position="inside">
                 <div
                     t-if="record.rating_status != 'no_rate'"
                     class="text-primary ms-1 me-1"
